@@ -28,7 +28,7 @@ func main() {
 
 	// Rule 1:
 	// Depending on the size a particular value, Go determines the alignment we need. Every 2 bytes
-	// value must follow a 2 bytes boundary. Since the bool value is only 1 byte and start at
+	// value must fall on a 2 bytes boundary. Since the bool value is only 1 byte and start at
 	// address 0, then the next int16 must start on address 2. The byte at address that get skipped
 	// over becomes a 1 byte padding. Similarly, if it is a 4 bytes value then we will have a 3
 	// bytes padding value.
@@ -46,7 +46,7 @@ func main() {
 	// type example struct {
 	//     counter int64
 	//     pi      float32
-	//     float   bool
+	//     flag    bool
 	// }
 
 	// Declare a variable of type example and init using a struct literal.
@@ -84,7 +84,7 @@ func main() {
 
 	// If we have two name type identical struct, we can't assign one to another.
 	// For example, example1 and example2 are identical struct, var ex1 example1, var ex2 example2.
-	// ex1 = ex2 is not allowed. We have to explicitly say that ex1 = example2(ex2) by performing a
+	// ex1 = ex2 is not allowed. We have to explicitly say that ex1 = example1(ex2) by performing a
 	// conversion.
 	// However, if ex is a value of identical anonymous struct type (like e3 above), then it is possible to
 	// assign ex1 = ex
